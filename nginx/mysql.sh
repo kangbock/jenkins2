@@ -2,8 +2,9 @@
 # mysql
 sudo yum install -y mysql
 sudo export LANG="ko_KR.UTF-8"
-mysql -uroot -pIt12345! -hmydb.czgwhg0kozpu.ap-northeast-2.rds.amazonaws.com << FOE
-  use project
+mysql -uroot -pIt1 -h172.17.0.4 << FOE
+  create database project;
+  use project;
   create table member (
 	  id int AUTO_INCREMENT NOT NULL primary key,
 	  email varchar(30) NOT NULL,
@@ -22,13 +23,16 @@ mysql -uroot -pIt12345! -hmydb.czgwhg0kozpu.ap-northeast-2.rds.amazonaws.com << 
   	FOREIGN KEY (member_id) REFERENCES member(id)
   	);
 
-  grant all privileges on project.* to 'root'@'%' IDENTIFIED BY 'It12345!';
-  grant all privileges on project.* to 'root'@'mydb.czgwhg0kozpu.ap-northeast-2.rds.amazonaws.com' IDENTIFIED BY 'It12345!';
+  grant all privileges on project.* to 'root'@'%' IDENTIFIED BY 'It1';
+  grant all privileges on project.* to 'root'@'10.0.0.145' IDENTIFIED BY 'It1';
+  grant all privileges on project.* to 'root'@'13.124.98.20' IDENTIFIED BY 'It1';
+  grant all privileges on project.* to 'root'@'172.17.0.1' IDENTIFIED BY 'It1';
+  grant all privileges on project.* to 'root'@'172.17.0.2' IDENTIFIED BY 'It1';
+  grant all privileges on project.* to 'root'@'172.17.0.3' IDENTIFIED BY 'It1';
+  grant all privileges on project.* to 'root'@'172.17.0.4' IDENTIFIED BY 'It1';
   flush privileges;
 
   SHOW GRANTS FOR CURRENT_USER;
-
-  use project;
 
   ALTER TABLE member convert to charset utf8;
   ALTER TABLE board convert to charset utf8;
