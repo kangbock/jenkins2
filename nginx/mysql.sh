@@ -1,7 +1,6 @@
 #! /bin/bash
 # mysql
 sudo yum install -y mysql
-sudo export LANG="ko_KR.UTF-8"
 mysql -uroot -pIt1 -h172.17.0.4 << FOE
   create database project;
   use project;
